@@ -5,22 +5,25 @@ import YOUTUBE_API_KEY from '../config/youtube.js';
 
 
 var handleVideoSearch = (q) => {
-  return {
-    type: 'CHANGE_VIDEO_LIST',
-    videos: dispatch(searchYouTube({key: YOUTUBE_API_KEY, query: q}, changeVideoList))
+  return function(dispatch) {
+    return dispatch(changeVideoList(searchYouTube({key: YOUTUBE_API_KEY, query: q}, function(items) {
+      return items;
+    })));
   };
-
-
-  // {
-  //   video: searchYouTube({key: YOUTUBE_API_KEY, query: q}, changeVideoList),
-  //   type: 'CHANGE_VIDEO_LIST'
-
-  // };
-  // {
-  //   type: 'CHANGE_VIDEO_LIST',
-  // };
-  //TODO:  Write an asynchronous action to handle a video search!
 };
+
+// type: 'CHANGE_VIDEO_LIST',
+// videos: searchYouTube({key: YOUTUBE_API_KEY, query: q}, function(items) { return items; })
+// {
+//   video: searchYouTube({key: YOUTUBE_API_KEY, query: q}, changeVideoList),
+//   type: 'CHANGE_VIDEO_LIST'
+
+// };
+// {
+//   type: 'CHANGE_VIDEO_LIST',
+// };
+//TODO:  Write an asynchronous action to handle a video search!
+// };
 
 export default handleVideoSearch;
 
