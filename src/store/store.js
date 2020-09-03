@@ -12,7 +12,7 @@ const initialState = {
 
 export default createStore(
   rootReducer,
-  initialState,
+  {currentVideo: null, videoList: exampleVideoData},
   applyMiddleware(thunk)
 );
 

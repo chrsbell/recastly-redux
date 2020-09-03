@@ -9,15 +9,15 @@ const mapStateToProps = (reduxStore) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    changeVideo: function(video) {
-      dispatch(changeVideo(video));
-    }
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     changeVideo: function(video) {
+//       dispatch(changeVideo(video));
+//     }
+//   };
+// };
 
-var VideoPlayerContainer = connect(mapStateToProps, mapDispatchToProps)(VideoPlayer);
+var VideoPlayerContainer = connect(mapStateToProps, null)(VideoPlayer);
 // mapStateToProps
 //TODO: define a VideoPlayerContainer component which will hook up your action
 //dispatchers with your VideoPlayer component props.

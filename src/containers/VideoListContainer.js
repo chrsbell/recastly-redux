@@ -2,18 +2,16 @@ import { connect } from 'react-redux';
 import VideoList from './../components/VideoList.js';
 import changeVideo from './../actions/currentVideo.js';
 
-const mapStateToProps = (reduxStore) => {
-  return {
-    videos: reduxStore.videoList
-  };
-};
-const mapDispatchToProps = (dispatch) => {
-  return {
-    handleVideoListEntryTitleClick: function(video) {
-      dispatch(changeVideo(video));
-    }
-  };
-};
+const mapStateToProps = (reduxStore) => ({
+  videos: reduxStore.videoList
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  handleVideoListEntryTitleClick: function(video) {
+    dispatch(changeVideo(video));
+  }
+});
+
 
 const VideoListContainer = connect(
   // mapStateToProps = (reduxStore) => {

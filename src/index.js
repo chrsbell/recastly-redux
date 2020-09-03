@@ -7,6 +7,7 @@ import VideoListContainer from './containers/VideoListContainer.js';
 import VideoPlayerContainer from './containers/VideoPlayerContainer.js';
 import SearchContainer from './containers/SearchContainer.js';
 import store from './store/store.js';
+import handleSearchChange from './actions/search.js';
 
 //TODO: Import the Provider component from 'react-redux' here!
 import {Provider} from 'react-redux';
@@ -17,5 +18,6 @@ ReactDOM.render(
   <Provider store={store}>
     <App/>
   </Provider>,
-  document.getElementById('app')
+  document.getElementById('app'),
+  () => handleSearchChange('HunterxHunter Hisoka')(store.dispatch)
 );
